@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml" class="content">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewBanquierTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewBanquierLabel_idBanquier}"/>
+                    <h:outputText value="#{banquierController.selected.idBanquier}" title="#{bundle.ViewBanquierTitle_idBanquier}"/>
+                    <h:outputText value="#{bundle.ViewBanquierLabel_nom}"/>
+                    <h:outputText value="#{banquierController.selected.nom}" title="#{bundle.ViewBanquierTitle_nom}"/>
+                    <h:outputText value="#{bundle.ViewBanquierLabel_prenom}"/>
+                    <h:outputText value="#{banquierController.selected.prenom}" title="#{bundle.ViewBanquierTitle_prenom}"/>
+                    <h:outputText value="#{bundle.ViewBanquierLabel_tel}"/>
+                    <h:outputText value="#{banquierController.selected.tel}" title="#{bundle.ViewBanquierTitle_tel}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{banquierController.destroyAndView}" value="#{bundle.ViewBanquierDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewBanquierEditLink}"/>
+                <br />
+                <h:commandLink action="#{banquierController.prepareCreate}" value="#{bundle.ViewBanquierCreateLink}" />
+                <br />
+                <h:commandLink action="#{banquierController.prepareList}" value="#{bundle.ViewBanquierShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewBanquierIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

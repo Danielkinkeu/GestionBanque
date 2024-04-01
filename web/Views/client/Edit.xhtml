@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditClientTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditClientLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{clientController.selected.id}" title="#{bundle.EditClientTitle_id}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditClientLabel_nom}" for="nom" />
+                    <h:inputText id="nom" value="#{clientController.selected.nom}" title="#{bundle.EditClientTitle_nom}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_nom}"/>
+                    <h:outputLabel value="#{bundle.EditClientLabel_prenom}" for="prenom" />
+                    <h:inputText id="prenom" value="#{clientController.selected.prenom}" title="#{bundle.EditClientTitle_prenom}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_prenom}"/>
+                    <h:outputLabel value="#{bundle.EditClientLabel_adresse}" for="adresse" />
+                    <h:inputText id="adresse" value="#{clientController.selected.adresse}" title="#{bundle.EditClientTitle_adresse}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_adresse}"/>
+                    <h:outputLabel value="#{bundle.EditClientLabel_telephone}" for="telephone" />
+                    <h:inputText id="telephone" value="#{clientController.selected.telephone}" title="#{bundle.EditClientTitle_telephone}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_telephone}"/>
+                    <h:outputLabel value="#{bundle.EditClientLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{clientController.selected.email}" title="#{bundle.EditClientTitle_email}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_email}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{clientController.update}" value="#{bundle.EditClientSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditClientViewLink}"/>
+                <br />
+                <h:commandLink action="#{clientController.prepareList}" value="#{bundle.EditClientShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditClientIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

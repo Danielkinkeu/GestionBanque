@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCompteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCompteLabel_numCompte}"/>
+                    <h:outputText value="#{compteController.selected.numCompte}" title="#{bundle.ViewCompteTitle_numCompte}"/>
+                    <h:outputText value="#{bundle.ViewCompteLabel_solde}"/>
+                    <h:outputText value="#{compteController.selected.solde}" title="#{bundle.ViewCompteTitle_solde}"/>
+                    <h:outputText value="#{bundle.ViewCompteLabel_dateOuverture}"/>
+                    <h:outputText value="#{compteController.selected.dateOuverture}" title="#{bundle.ViewCompteTitle_dateOuverture}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCompteLabel_dateFermeture}"/>
+                    <h:outputText value="#{compteController.selected.dateFermeture}" title="#{bundle.ViewCompteTitle_dateFermeture}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewCompteLabel_typeCompte}"/>
+                    <h:outputText value="#{compteController.selected.typeCompte}" title="#{bundle.ViewCompteTitle_typeCompte}"/>
+                    <h:outputText value="#{bundle.ViewCompteLabel_idClient}"/>
+                    <h:outputText value="#{compteController.selected.idClient}" title="#{bundle.ViewCompteTitle_idClient}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{compteController.destroyAndView}" value="#{bundle.ViewCompteDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCompteEditLink}"/>
+                <br />
+                <h:commandLink action="#{compteController.prepareCreate}" value="#{bundle.ViewCompteCreateLink}" />
+                <br />
+                <h:commandLink action="#{compteController.prepareList}" value="#{bundle.ViewCompteShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCompteIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

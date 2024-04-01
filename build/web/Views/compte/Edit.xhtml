@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCompteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCompteLabel_numCompte}" for="numCompte" />
+                    <h:inputText id="numCompte" value="#{compteController.selected.numCompte}" title="#{bundle.EditCompteTitle_numCompte}" required="true" requiredMessage="#{bundle.EditCompteRequiredMessage_numCompte}"/>
+                    <h:outputLabel value="#{bundle.EditCompteLabel_solde}" for="solde" />
+                    <h:inputText id="solde" value="#{compteController.selected.solde}" title="#{bundle.EditCompteTitle_solde}" required="true" requiredMessage="#{bundle.EditCompteRequiredMessage_solde}"/>
+                    <h:outputLabel value="#{bundle.EditCompteLabel_dateOuverture}" for="dateOuverture" />
+                    <h:inputText id="dateOuverture" value="#{compteController.selected.dateOuverture}" title="#{bundle.EditCompteTitle_dateOuverture}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCompteLabel_dateFermeture}" for="dateFermeture" />
+                    <h:inputText id="dateFermeture" value="#{compteController.selected.dateFermeture}" title="#{bundle.EditCompteTitle_dateFermeture}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditCompteLabel_typeCompte}" for="typeCompte" />
+                    <h:inputText id="typeCompte" value="#{compteController.selected.typeCompte}" title="#{bundle.EditCompteTitle_typeCompte}" required="true" requiredMessage="#{bundle.EditCompteRequiredMessage_typeCompte}"/>
+                    <h:outputLabel value="#{bundle.EditCompteLabel_idClient}" for="idClient" />
+                    <h:selectOneMenu id="idClient" value="#{compteController.selected.idClient}" title="#{bundle.EditCompteTitle_idClient}" required="true" requiredMessage="#{bundle.EditCompteRequiredMessage_idClient}">
+                        <f:selectItems value="#{clientController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{compteController.update}" value="#{bundle.EditCompteSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCompteViewLink}"/>
+                <br />
+                <h:commandLink action="#{compteController.prepareList}" value="#{bundle.EditCompteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCompteIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
