@@ -5,116 +5,99 @@
     <h:head>
         <title>BANQUE</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
-         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
     </h:head>
     <h:body>
-<!--        <div >
-            <ul>
-                <li> LA BANQUE DU FUTUR</li>
-                <li >
-                <h:link outcome="/Views/banquier/List" value="Show All Banquier Items"/>
-                </li>
-                <li >
-                <h:link outcome="/Views/client/List" value="Show All Client Items"/>
-                </li>
-                <li >
-                <h:link outcome="/Views/compte/List" value="Show All Compte Items"/>
-                </li>
-                <li >
-                <h:link outcome="/Views/operation/List" value="Show All Operation Items"/>
-                </li>
-            </ul>
-        </div>-->
-<div class="flex justify-center">
-    <div>
-<header class='border-b py-4 px-4 sm:px-10 bg-black font-sans min-h-[70px] max-lg:w-full'>
-    <div class='flex flex-wrap items-center relative gap-x-4 gap-y-3'>
-     
-      <div id="collapseMenu"
-        class='lg:!flex lg:flex-auto lg:ml-12 max-lg:hidden max-lg:w-full max-lg:absolute max-lg:top-16 max-sm:top-24 max-lg:bg-white max-lg:p-4'>
-        <ul class='lg:flex lg:space-x-8 max-lg:space-y-2'>
-          <li class='max-lg:border-b max-lg:py-2'>
-            <a href='javascript:void(0)'
-              class='lg:hover:text-[#007bff] text-[#007bff] block font-bold text-[15px]'>DOMILIX BANK</a>
-          </li>
-        </ul>
-       
-      </div>
-   
-    </div>
-  </header>
-        <div class="font-sans text-[#333] mt-20">
-      <div class="flex flex-col justify-center items-center text-center max-w-2xl max-md:max-w-md mx-auto">
-          <img src="data:image/jpeg;base64,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" alt="logo" class='w-[160px]' />
+        <div class="flex justify-center ">
+            <div class="ml-5">
+                <header class='border-b py-4 px-4 sm:px-10 bg-black font-sans min-h-[70px] max-lg:w-full'>
+                    <div class='flex flex-wrap items-center relative gap-x-4 gap-y-3'>
 
-        <div>
-          <h2 class="md:text-4xl text-3xl font-extrabold mb-4 md:!leading-[45px]">With <span class="text-blue-600">Domilix</span>, carry out your banking transactions in complete security.</h2>
-          <div class="grid sm:grid-cols-3 gap-6 items-center mt-14">
-            <div class="flex flex-col items-center text-center">
-              <h5 class="font-bold text-2xl text-blue-600 mb-1"><h:outputText value="#{clientController.pagination.itemsCount}"/></h5>
-              <p class="text-sm font-semibold">Clients</p>
+                        <div id="collapseMenu"
+                             class='lg:!flex lg:flex-auto lg:ml-12 max-lg:hidden max-lg:w-full max-lg:absolute max-lg:top-16 max-sm:top-24 max-lg:bg-white max-lg:p-4'>
+                            <ul class='lg:flex lg:space-x-8 max-lg:space-y-2'>
+                                <li class='max-lg:border-b max-lg:py-2'>
+                                    <a href='javascript:void(0)'
+                                       class='lg:hover:text-[#007bff] text-[#007bff] block font-bold text-[15px]'>DOMILIX BANK</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </header>
+                <div class="font-sans text-[#333] mt-10">
+                    <div class="flex flex-col justify-center items-center text-center w-[70%] ml-80">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEABsbGxscGx4hIR4qLSgtKj04MzM4PV1CR0JHQl2NWGdYWGdYjX2Xe3N7l33gsJycsOD/2c7Z//////////////8BGxsbGxwbHiEhHiotKC0qPTgzMzg9XUJHQkdCXY1YZ1hYZ1iNfZd7c3uXfeCwnJyw4P/Zztn////////////////CABEIAPoA+gMBIgACEQEDEQH/xAAaAAEAAgMBAAAAAAAAAAAAAAAAAgUDBAYB/9oACAEBAAAAAOlAAAAAAAAAAAAAAAAAAMOYAAAAFXS7996AAAAUNfsYM/Q5QAAAY+dwWW/r1HvQbQAAA1uejb7JClhdWQAACupJXWQPKnUs7sAAFNVbNxraG17ry2duvrtroJgAI89q79k1K/bgxZrJq1M+h2AAYOexWe2ABip19vADX5nPt6xOz0dcy2NfhM8NG9sgAYKHHG/3Negj50G1rc9770GwAAKnHC9KZ5dFPLy3AACorp9KUOPzoznZw6IAAKiun0pQ449Ic7OHRAABUV0+lKHHHpDnZw6IAAKiun0pQ449Ic7OHRAABUV0+lKHHHpDnZw6IAAKiun0pQ449Ic7OHRAABWwhcFVKFsVE8dwAAPOewQ6mfnN4/Ool5y6XTegAFbVmzeVVebl1TaRv24ACtogB49C0t8gAx1OmAABmt9kA06gAAA3bYAx6IAABs7IAAAAAAAAAAAAAAAAAAAAAH//xAAXAQEBAQEAAAAAAAAAAAAAAAAAAgED/9oACgICEAMQAAAAAAAAAAAAAAAADc6853n0AAACpueV1lzzvNAAC43IsY3pz59M0ADrznYupDNx15xc0AVOrjNi+nOdm+nOaxN4AC5xNXGVO3OJoAA6ROzXSM2K6ROzQAB0idmukZsV0idmgAC5zZ25zZ24zZoADc6852L685qK685rnYAbnTnWAAEXzsAudwAAGReaAAAAAAAAAAB//8QALxAAAQQBAgQFBAICAwAAAAAAAwABAgQSBRQREyQxECAwNEAzREVVFSMiUTJgcP/aAAgBAQABCAD/ALfM4YEgOfzrmosJ3CBwtLJyVdQmDgKyzs7M7fK/2729RmbiKr/WCKhRsFg5J8XycRa9otJCMM0GIP5BSjDByEs2i3U78HiIVWkwX5hFYrDsR4TmxK88DDmWsTmAq2xWocYfGs2w1IZEJM1qbEPHmHnywVqw60eEfEg4Fg8JmASouD5RKKnfid+UX4ly/Cv/AFj4SecjGCElzsMQwwaEPL3R6cwu5Af4HiztU1J4OwrXwrepO7uGpwGCLykCnM7sQ7MzMzNcJMVac4NbtcKjxvnKEbcqZSzpjKKtaKeA2d7BW1FxPUlMkHK6s0s3coWdp5DnVukp8IEhOBINOHrSlGEZTnavEucRid4jxhCtSxdin8LsJkrThDaWXjTjE4injaQIWB1oDltJjvwKMtYpLpJvpw7AYzGXws1YWGT5inyjBKanN5Cr2Q2RtMfqWLAqw8ynMa7NpFebvJhirBr124rmiXNEuYJcwS5glzRLmiXNEuYJcwS5glzRLmiRmrHhgQjPWk0ZNmObGBTvDstj6do8gBecZSsFI5TCr2bU8I26NSuIDtjUWNRY1FXBUNZhB/4ygrlOoCVfhjUWNRY1FVrVDnmz/wAZQVurUAYTNjUWNRY1FTq0zkPxs0C1neYJMSTtJqFo52eB/UPXDYZmKcFYNkw3wqqbV2hJ4go1gPGcEeqCxi5ZhrjMYb4VU8K78IxDTrgk8ho1QFiTSIw68XlGWFVRFXIQQ2BVBXeTi+BaEB7cpF5ND+tEDS4tGHicVbdWpm29HKEFENNz1uV4zr1nsW3ntKnHFDBWjaquP4Ood7Kf8Qhe6teTU+11N77TVQ+tHyap2tr8qtK+1+FqHeyv1CF7q15NT7XU3vtNWn/Wj5NU7W1+VWlfa/C1DvZX6hC91a8mp9rqb32mrT/rR8mqdra/KrSvtfhah3sr9Qhe6teTU+11N77TVp/1o+TVO1tflVpX2vwtQ72V+oQvdWvJqfa6m99pq0/60fJqna2vyq0r7X4Wod7K/UIXurXk1PtdTe+01af9aPk1TtbX5VaV9r8KyPm2ZjfZQ6ZTrRFNyN4nAxz2xvtY80JUOtCuavj42au5ncGtr1W4VattS1YfBd2ZuL24DNbNJttBTrxjB3aBITZnindm7nGM9ixNttBcmA3hNNKMv+KeUW4cXFA0yEW2ghCGI4Ju0mft6+pjjMYGfaCW0EtoJUQDHdhwWpjgSVVn2gltBLaCWnBgO0TgtSFAlgHHaCW0EtoJaYOAiWuHq/7d7N8G3NyunXTrp1066ddMunXTrp1066ddMunXTrp1066dafcCKBYEGUZY5D9IpIBHIk7VuRwuNsirIqyKsirIqyKsirIqyKsirIqyKsirIqyKsirIqyKsiqseYCkm9ezA+TN6N/HaE48DrE6xOsTrE6xOsTrE6xOsTrE6xOsTrE6xOsTrE6xOsTrE6xOtO+sfP0SigYchz2E1sJrYTWwmthNbCa2E1sJrYTWwmthNbCa2E1sJrYTWwmthNbCa2E1sJrYTVetEGb/+Df/EADkQAAEDAgEKAwgABQUAAAAAAAEAAgMRkhIEECAxMkFSVJGyQFOhISIjMFFxcsITQmFigjNgcIHR/9oACAEBAAk/AP8Ad8jQ92oePo+b0YiXvdrcUax7pEQQRUEeLIAGslGjNTpV/wBDeU/A/wDkYm4X7wVV8G9vCnBzT4lwa0KrIOHe5MxPOpoRxy9ubWNTt4X+L9xR/Jm5yNHDaYdY8PrOywayj+LNwX+T9zV7XHacdZ0GgtKq+H672p+F41OCAZN3eFAfNw/RPxPOtxVWQ73b3JtGjTFWb40f/Qj+Mvgz+UqP3O8lCjN0aFAE6jgQn43PBxsTqHWfsU+jyGqUh4lAd/c0qakQ9ptqpS9ricIIAoM1Gyejk2jhtNKq+D1YnBzTqI+e4Na0VJKqyD1em1cdlgVHSbhubnYXOJCZgcwHE9MeK0DB7PeAUDqtmB1jUh8M1LlE7+GQRu4aKMgaxn9142XoUduO5y9rDtRp33G8fNdQbhvK9kY2I1hxfUkBrVMx0h1vLgpY7gpY7gpY7gpWXBSx3BSx3BSx3BSx3BSx3BSsuCljuCljuCljuCfGR+QUjXsOy8EFPwv9CvclGtny4nSO1ABQzPf+BoEx0TP5nuCYP9UAlyEPohD6IQ+iYwt/hvKgCiY0OL0IfRCH0Qh9FGxwEQUAUbGgxuQh9EIfRCH0UbHAYEC+Lg3tUE4cNTg0qF4e0bZFAfmtrQ1CxUBBG0aVCD+j0HV3VxJpxgbRJOZlcKxHBIQCMRQf0ei5pc5oxHFQVKZQ0pUknMypAoDUhFxLXubUYiDQoP6PRcMcgBJxBMoXf1J8CxtBAHG5Mj+Jsf1TI8QniD9BrKBsZJKZHieKtCZGaZRhdadCNlBKPVoULKpjNcnUeC5Qd+bmou/Q4YF5IXOfqdDmWdi8hcc/aPBcoO/NzUXfocMC8kLnP1OhzLOxeQuOftHguUHfm5qLv0OGBeSFzn6nQ5lnYvIXHP2jwXKDvzc1F36HDAvJC5z9TocyzsXkLjn7R4LlB35uai79DhgXkhc5+p0OZZ2LyFxz9o8Fyg783NRd+hwwLyQuc/U6HMs7F5C45+0eCrR2TAG9Y/g7KDqyZTETdoVoWRIOrE3C1V9/KcRtOgSPjt7ETsYaIk+2Y+BICkFBQKVvQKQGn0oCnhwIqKHMQFIKGQ0UregUoo17SaUBpVOB+xzOA+5opRRz3EVoTSqlb0ClFBIKkUCIPgPOVeqr1Veq8p+b+9V6qvVV6ryRm8pyr1Veqr1X0j+cQABUkqduPD7FhWDosHRYOiwdFg6LB0WDosHRYOiwdFg6LB0WDosHRYOiwdFMAwEYE9rh9R8vZasncKka3BQm4KE3BQm4KE3BQm4KE3BQm4KE3BQm4KE3BQm4KE3BQm4KE3BQm4KE3BQm4KE3BQm4KAkOaBQOCaWubraflfVuD8qp0dpTo7SnR2lOjtKdHaU6O0p0dpTo7SnR2lOjtKdHaU6O0p0dpTo7SnR2lOjtKdHaU6O0p0dpTo7SnR2lbeBtnytRWVPtasqfY1ZU+xqyp9jVlT7GrKn2NWVPsasqfY1ZU+xqyp9jVlT7GrKn2NWVPsasqfY1ZU+xqyp9jVlT7GrKn2NWVPsasqfY1ZU+xqcXPdrcf+Bv/8QAIhEBAAIBAwQDAQAAAAAAAAAAAQARAhASMSAhMEFRgZFQ/9oACAECAQE/AP4wLCsZljfHlxxuKYkVZjlUQyIleLHH5mWVdiGK95TQzawXFnbIiJ4McamWT60FCqltVU3Px6qNrdQsg7uSONccdRlXqb25+xaPcMm+6z9mTR7hk33Wfsya+YZsesLDuzLSu3LMtKfmZeE4JlocTPnT19Mz58JwTLQ4mfOnr6Znz4RAIt6WBUyb0sr6mTb4At0yLIFumRZAt0yL79YLArwuN9WKBNxNxNxNxNxNxNxNxNxNxFt/h//EACERAAICAQQDAQEAAAAAAAAAAAABAhEQEiEwMSBBgVBR/9oACAEDAQE/APxm0jeQpV3yuVCTkJUONibiJ3xOX8FG+xtIvs1IaTRvFid8DlYo4aTKRSFsbMaoUr8mr9mnbCVjWErGsJWOCF5/BY+Cx8I8LI4fZHrHsj1wsjh9keseyPXC1YsULFEeB4jsN4jsN4j5t0N3wqXk02aWaWUymUzSymaWUzSxbL8P/9k=" alt="logo" class='w-[160px]' />
+
+                        <div>
+                            <h2 class="md:text-4xl text-3xl font-extrabold mb-4 md:!leading-[45px]">With <span class="text-blue-600">Domilix</span>, carry out your banking transactions in complete security.</h2>
+                            <div class="grid sm:grid-cols-3 gap-6 items-center mt-14">
+                                <div class="flex flex-col items-center text-center">
+                                    <h5 class="font-bold text-2xl text-blue-600 mb-1"><h:outputText value="#{clientController.pagination.itemsCount}"/></h5>
+                                    <p class="text-sm font-semibold">Clients</p>
+                                </div>
+                                <div class="flex flex-col items-center text-center">
+                                    <h5 class="font-bold text-2xl text-blue-600 mb-1"><h:outputText value="#{compteController.pagination.itemsCount}"/></h5>
+                                    <p class="text-sm font-semibold">Account</p>
+                                </div>
+                                <div class="flex flex-col items-center text-center">
+                                    <h5 class="font-bold text-2xl text-blue-600 mb-1"><h:outputText value="#{operationController.pagination.itemsCount}"/></h5>
+                                    <p class="text-sm font-semibold">Operations</p>
+                                </div>
+                            </div>
+                            <div class="mt-14 flex gap-x-8 gap-y-4 justify-center max-sm:flex-col">
+                                <button type='button'
+                                        class="bg-blue-600 hover:bg-transparent hover:text-blue-600 border-2 border-blue-600 transition-all text-white font-bold text-sm rounded px-5 py-3">
+                                    <h:link outcome="/Views/client/Create">Add a new Client</h:link></button>
+                                <button type='button'
+                                        class="bg-transparent hover:bg-[#333] hover:text-white border-2 border-[#333] transition-all font-bold text-sm rounded px-5 py-3">
+                                    <h:link outcome="/Views/compte/Create">Add a new account</h:link></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex flex-col items-center text-center">
-              <h5 class="font-bold text-2xl text-blue-600 mb-1"><h:outputText value="#{compteController.pagination.itemsCount}"/></h5>
-              <p class="text-sm font-semibold">Account</p>
+            <div>
+                <nav class="bg-black shadow-lg h-screen fixed top-0 left-0 min-w-[250px] py-6 px-4 font-[sans-serif] overflow-auto">
+                    <a href="javascript:void(0)" >DOMILIX BANK</a>
+                    <ul class="mt-6">
+                        <li>
+                            <a href="javascript:void(0)"
+                               class="text-white hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
+                                <svg  fill="currentColor" class="w-[18px] h-[18px] mr-4"
+                                      viewBox="0 0 512 512">
+                                    <path
+                                        d="M197.332 170.668h-160C16.746 170.668 0 153.922 0 133.332v-96C0 16.746 16.746 0 37.332 0h160c20.59 0 37.336 16.746 37.336 37.332v96c0 20.59-16.746 37.336-37.336 37.336zM37.332 32A5.336 5.336 0 0 0 32 37.332v96a5.337 5.337 0 0 0 5.332 5.336h160a5.338 5.338 0 0 0 5.336-5.336v-96A5.337 5.337 0 0 0 197.332 32zm160 480h-160C16.746 512 0 495.254 0 474.668v-224c0-20.59 16.746-37.336 37.332-37.336h160c20.59 0 37.336 16.746 37.336 37.336v224c0 20.586-16.746 37.332-37.336 37.332zm-160-266.668A5.337 5.337 0 0 0 32 250.668v224A5.336 5.336 0 0 0 37.332 480h160a5.337 5.337 0 0 0 5.336-5.332v-224a5.338 5.338 0 0 0-5.336-5.336zM474.668 512h-160c-20.59 0-37.336-16.746-37.336-37.332v-96c0-20.59 16.746-37.336 37.336-37.336h160c20.586 0 37.332 16.746 37.332 37.336v96C512 495.254 495.254 512 474.668 512zm-160-138.668a5.338 5.338 0 0 0-5.336 5.336v96a5.337 5.337 0 0 0 5.336 5.332h160a5.336 5.336 0 0 0 5.332-5.332v-96a5.337 5.337 0 0 0-5.332-5.336zm160-74.664h-160c-20.59 0-37.336-16.746-37.336-37.336v-224C277.332 16.746 294.078 0 314.668 0h160C495.254 0 512 16.746 512 37.332v224c0 20.59-16.746 37.336-37.332 37.336zM314.668 32a5.337 5.337 0 0 0-5.336 5.332v224a5.338 5.338 0 0 0 5.336 5.336h160a5.337 5.337 0 0 0 5.332-5.336v-224A5.336 5.336 0 0 0 474.668 32zm0 0"
+                                        data-original="#000000" />
+                                </svg>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="mt-6">
+                        <h6 class="text-blue-600 text-sm font-bold px-4">Let's Go</h6>
+                        <ul class="mt-3">
+                            <li>
+                                <h:link outcome="/Views/client/List"
+                                        class="text-white hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
+                                    <svg  fill="currentColor" class="w-[18px] h-[18px] mr-4"
+                                          viewBox="0 0 6.35 6.35">
+                                        <path
+                                            d="M3.172.53a.265.266 0 0 0-.262.268v2.127a.265.266 0 0 0 .53 0V.798A.265.266 0 0 0 3.172.53zm1.544.532a.265.266 0 0 0-.026 0 .265.266 0 0 0-.147.47c.459.391.749.973.749 1.626 0 1.18-.944 2.131-2.116 2.131A2.12 2.12 0 0 1 1.06 3.16c0-.65.286-1.228.74-1.62a.265.266 0 1 0-.344-.404A2.667 2.667 0 0 0 .53 3.158a2.66 2.66 0 0 0 2.647 2.663 2.657 2.657 0 0 0 2.645-2.663c0-.812-.363-1.542-.936-2.03a.265.266 0 0 0-.17-.066z"
+                                            data-original="#000000" />
+                                    </svg>
+                                    <span>Login</span>
+                                </h:link>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-            <div class="flex flex-col items-center text-center">
-              <h5 class="font-bold text-2xl text-blue-600 mb-1"><h:outputText value="#{operationController.pagination.itemsCount}"/></h5>
-              <p class="text-sm font-semibold">Operations</p>
-            </div>
-          </div>
-          <div class="mt-14 flex gap-x-8 gap-y-4 justify-center max-sm:flex-col">
-            <button type='button'
-              class="bg-blue-600 hover:bg-transparent hover:text-blue-600 border-2 border-blue-600 transition-all text-white font-bold text-sm rounded px-5 py-3">
-                <h:link outcome="/Views/client/Create">Add a new Client</h:link></button>
-            <button type='button'
-              class="bg-transparent hover:bg-[#333] hover:text-white border-2 border-[#333] transition-all font-bold text-sm rounded px-5 py-3">
-                <h:link outcome="/Views/compte/Create">Add a new account</h:link></button>
-          </div>
         </div>
-      </div>
-    </div>
-        </div>
-    <div>
-<nav class="bg-black shadow-lg h-screen fixed top-0 left-0 min-w-[250px] py-6 px-4 font-[sans-serif] overflow-auto">
-      <a href="javascript:void(0)" >DOMILIX BANK</a>
-      <ul class="mt-6">
-        <li>
-          <a href="javascript:void(0)"
-            class="text-white hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
-            <svg  fill="currentColor" class="w-[18px] h-[18px] mr-4"
-              viewBox="0 0 512 512">
-              <path
-                d="M197.332 170.668h-160C16.746 170.668 0 153.922 0 133.332v-96C0 16.746 16.746 0 37.332 0h160c20.59 0 37.336 16.746 37.336 37.332v96c0 20.59-16.746 37.336-37.336 37.336zM37.332 32A5.336 5.336 0 0 0 32 37.332v96a5.337 5.337 0 0 0 5.332 5.336h160a5.338 5.338 0 0 0 5.336-5.336v-96A5.337 5.337 0 0 0 197.332 32zm160 480h-160C16.746 512 0 495.254 0 474.668v-224c0-20.59 16.746-37.336 37.332-37.336h160c20.59 0 37.336 16.746 37.336 37.336v224c0 20.586-16.746 37.332-37.336 37.332zm-160-266.668A5.337 5.337 0 0 0 32 250.668v224A5.336 5.336 0 0 0 37.332 480h160a5.337 5.337 0 0 0 5.336-5.332v-224a5.338 5.338 0 0 0-5.336-5.336zM474.668 512h-160c-20.59 0-37.336-16.746-37.336-37.332v-96c0-20.59 16.746-37.336 37.336-37.336h160c20.586 0 37.332 16.746 37.332 37.336v96C512 495.254 495.254 512 474.668 512zm-160-138.668a5.338 5.338 0 0 0-5.336 5.336v96a5.337 5.337 0 0 0 5.336 5.332h160a5.336 5.336 0 0 0 5.332-5.332v-96a5.337 5.337 0 0 0-5.332-5.336zm160-74.664h-160c-20.59 0-37.336-16.746-37.336-37.336v-224C277.332 16.746 294.078 0 314.668 0h160C495.254 0 512 16.746 512 37.332v224c0 20.59-16.746 37.336-37.332 37.336zM314.668 32a5.337 5.337 0 0 0-5.336 5.332v224a5.338 5.338 0 0 0 5.336 5.336h160a5.337 5.337 0 0 0 5.332-5.336v-224A5.336 5.336 0 0 0 474.668 32zm0 0"
-                data-original="#000000" />
-            </svg>
-            <span>Dashboard</span>
-          </a>
-        </li>
-      </ul>
-      
-      <div class="mt-6">
-        <h6 class="text-blue-600 text-sm font-bold px-4">Let's Go</h6>
-        <ul class="mt-3">
-          <li>
-            <h:link outcome="/Views/client/List"
-              class="text-white hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
-              <svg  fill="currentColor" class="w-[18px] h-[18px] mr-4"
-                viewBox="0 0 6.35 6.35">
-                <path
-                  d="M3.172.53a.265.266 0 0 0-.262.268v2.127a.265.266 0 0 0 .53 0V.798A.265.266 0 0 0 3.172.53zm1.544.532a.265.266 0 0 0-.026 0 .265.266 0 0 0-.147.47c.459.391.749.973.749 1.626 0 1.18-.944 2.131-2.116 2.131A2.12 2.12 0 0 1 1.06 3.16c0-.65.286-1.228.74-1.62a.265.266 0 1 0-.344-.404A2.667 2.667 0 0 0 .53 3.158a2.66 2.66 0 0 0 2.647 2.663 2.657 2.657 0 0 0 2.645-2.663c0-.812-.363-1.542-.936-2.03a.265.266 0 0 0-.17-.066z"
-                  data-original="#000000" />
-              </svg>
-              <span>Login</span>
-            </h:link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    </div>
-    </div>
-            </h:body>
-   
+    </h:body>
+
 
 
 
