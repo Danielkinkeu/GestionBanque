@@ -4,7 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/web/template.xhtml</file>
+            <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/src/java/jpa/Compte.java</file>
+            <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/web/Views/compte/List.xhtml</file>
+            <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/src/java/Bundle.properties</file>
+            <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/web/Views/operation/View.xhtml</file>
+            <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/web/Views/operation/Create.xhtml</file>
             <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/web/index.xhtml</file>
+            <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/src/java/Controller/CompteController.java</file>
+            <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/web/Views/client/View.xhtml</file>
+            <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/src/java/Controller/OperationController.java</file>
+            <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/src/java/jpa/Operation.java</file>
+            <file>file:/C:/Users/kinke/OneDrive/Documents/WORK/JEE/GestionBanque/web/Views/compte/Create.xhtml</file>
         </group>
     </open-files>
 </project-private>
