@@ -15,43 +15,66 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateOperationLabel_numOperation}" for="numOperation" />
-                    <h:inputText id="numOperation" value="#{operationController.selected.numOperation}" title="#{bundle.CreateOperationTitle_numOperation}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_numOperation}"/>
-                    <h:outputLabel value="#{bundle.CreateOperationLabel_dateOperation}" for="dateOperation" />
-                    <h:inputText id="dateOperation" value="#{operationController.selected.dateOperation}" title="#{bundle.CreateOperationTitle_dateOperation}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_dateOperation}">
+                    <h:outputLabel class="hidden" value="#{bundle.CreateOperationLabel_numOperation}" for="numOperation" />
+                    <h:inputText class="hidden" id="numOperation" value="#{operationController.selected.numOperation}" title="#{bundle.CreateOperationTitle_numOperation}" required="false" requiredMessage="#{bundle.CreateOperationRequiredMessage_numOperation}"/>
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.CreateOperationLabel_dateOperation}" for="dateOperation" />
+                    <h:inputText  class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="dateOperation" value="#{operationController.selected.dateOperation}" title="#{bundle.CreateOperationTitle_dateOperation}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_dateOperation}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateOperationLabel_libelle}" for="libelle" />
-                    <h:inputTextarea rows="4" cols="30" id="libelle" value="#{operationController.selected.libelle}" title="#{bundle.CreateOperationTitle_libelle}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_libelle}"/>
-                    <h:outputLabel value="#{bundle.CreateOperationLabel_montant}" for="montant" />
-                    <h:inputText id="montant" value="#{operationController.selected.montant}" title="#{bundle.CreateOperationTitle_montant}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_montant}"/>
-                    <h:outputLabel value="#{bundle.CreateOperationLabel_typeOperation}" for="typeOperation" />
-                    <h:selectOneMenu id="typeOperation" value="#{operationController.selected.typeOperation}">
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.CreateOperationLabel_libelle}" for="libelle" />
+                    <h:inputTextarea class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" rows="4" cols="30" id="libelle" value="#{operationController.selected.libelle}" title="#{bundle.CreateOperationTitle_libelle}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_libelle}"/>
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.CreateOperationLabel_montant}" for="montant" />
+                    <h:inputText class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="montant" value="#{operationController.selected.montant}" title="#{bundle.CreateOperationTitle_montant}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_montant}"/>
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.CreateOperationLabel_typeOperation}" for="typeOperation" />
+                    <h:selectOneMenu class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="typeOperation" value="#{operationController.selected.typeOperation}">
                          <f:selectItem itemLabel="Dépôt" itemValue="depot"/>
                          <f:selectItem itemLabel="Retrait" itemValue="retrait"/>
                          <f:selectItem itemLabel="Transfert" itemValue="transfert"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateOperationLabel_idcompteS}" for="idcompteS" />
-                    <h:selectOneMenu id="idcompteS" value="#{operationController.selected.idcompteS}" title="#{bundle.CreateOperationTitle_idcompteS}" >
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.CreateOperationLabel_idcompteS}" for="idcompteS" />
+                    <h:selectOneMenu class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="idcompteS" value="#{operationController.selected.idcompteS}" title="#{bundle.CreateOperationTitle_idcompteS}" >
                         <f:selectItems value="#{compteController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateOperationLabel_idBanquier}" for="idBanquier" />
-                    <h:selectOneMenu id="idBanquier" value="#{operationController.selected.idBanquier}" title="#{bundle.CreateOperationTitle_idBanquier}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_idBanquier}">
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.CreateOperationLabel_idBanquier}" for="idBanquier" />
+                    <h:selectOneMenu class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="idBanquier" value="#{operationController.selected.idBanquier}" title="#{bundle.CreateOperationTitle_idBanquier}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_idBanquier}">
                         <f:selectItems value="#{banquierController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateOperationLabel_idcompteD}" for="idcompteD" />
-                    <h:selectOneMenu id="idcompteD" value="#{operationController.selected.idcompteD}" title="#{bundle.CreateOperationTitle_idcompteD}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_idcompteD}">
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.CreateOperationLabel_idcompteD}" for="idcompteD" />
+                    <h:selectOneMenu class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="idcompteD" value="#{operationController.selected.idcompteD}" title="#{bundle.CreateOperationTitle_idcompteD}" required="true" requiredMessage="#{bundle.CreateOperationRequiredMessage_idcompteD}">
                         <f:selectItems value="#{compteController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{operationController.create}" value="#{bundle.CreateOperationSaveLink}" />
                 <br />
                 <br />
-                <h:commandLink action="#{operationController.prepareList}" value="#{bundle.CreateOperationShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateOperationIndexLink}"/>
+                
+                <div class="font-[sans-serif] w-max mx-auto bg-gray-200 border divide-x divide-white flex rounded overflow-hidden">
+                    <button type="button"
+                            class="px-4 py-2.5 flex items-center text-[#333] text-sm font-semibold outline-none hover:bg-gray-300 transition-all">
+                        <svg  width="18px" fill="currentColor" class="mr-2" viewBox="0 0 24 24">
+                            <path d="M8.087 2a.989.989 0 0 0-.583.13l-7 4a1 1 0 0 0 0 1.737l7 4c.766.438 1.682-.256 1.467-1.111l-.316-1.27A.39.39 128.005 0 1 9.034 9H15.5c2.51 0 4.5 1.991 4.5 4.5S18.01 18 15.5 18H8a2 2 0 0 0 0 4h7.5c4.67 0 8.5-3.83 8.5-8.5S20.17 5 15.5 5H9.032a.39.39 52.01 0 1-.38-.485l.32-1.275A1.003 1.003 0 0 0 8.086 2z" data-original="#000000" paint-order="fill markers stroke" />
+                        </svg>
+                        <h:link outcome="/index" value="#{bundle.CreateOperationIndexLink}"/>
+
+                    </button>
+                    <button type="button"
+                            class="px-4 py-2.5 flex items-center text-[#333] text-sm font-semibold outline-none hover:bg-gray-300 transition-all">
+                        <svg  width="18px" fill="currentColor" class="mr-2" viewBox="0 0 6.35 6.35">
+                            <path fill-rule="evenodd" d="M3.181.264A2.92 2.92 0 0 0 .264 3.18a2.922 2.922 0 0 0 2.917 2.917A2.92 2.92 0 0 0 6.096 3.18 2.919 2.919 0 0 0 3.18.264zm0 .53A2.38 2.38 0 0 1 5.566 3.18 2.382 2.382 0 0 1 3.18 5.566 2.384 2.384 0 0 1 .794 3.179 2.383 2.383 0 0 1 3.181.794zm-.004 1.057a.265.265 0 0 0-.263.27v.794h-.793a.265.265 0 0 0-.028 0 .266.266 0 0 0 .028.53h.793v.794a.265.265 0 0 0 .531 0v-.793h.794a.265.265 0 0 0 0-.531h-.794v-.794a.265.265 0 0 0-.268-.27z" data-original="#000000" paint-order="stroke fill markers" />
+                        </svg>
+                        <h:commandLink action="#{operationController.create}" value="#{bundle.CreateOperationSaveLink}"/>
+                    </button>
+                    <button type="button"
+                            class="px-4 py-2.5 flex items-center text-[#333] text-sm font-semibold outline-none hover:bg-gray-300 transition-all">
+
+                        <svg  width="18px" fill="#fff" class="inline" viewBox="0 0 492.004 492.004">
+                            <path
+                                d="M382.678 226.804 163.73 7.86C158.666 2.792 151.906 0 144.698 0s-13.968 2.792-19.032 7.86l-16.124 16.12c-10.492 10.504-10.492 27.576 0 38.064L293.398 245.9l-184.06 184.06c-5.064 5.068-7.86 11.824-7.86 19.028 0 7.212 2.796 13.968 7.86 19.04l16.124 16.116c5.068 5.068 11.824 7.86 19.032 7.86s13.968-2.792 19.032-7.86L382.678 265c5.076-5.084 7.864-11.872 7.848-19.088.016-7.244-2.772-14.028-7.848-19.108z"
+                                data-original="#000000" />
+                        </svg>
+                        <h:commandLink action="#{compteController.prepareList}" value="#{bundle.CreateOperationShowAllLink}" immediate="true"/>
+                    </button>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

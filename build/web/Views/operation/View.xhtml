@@ -15,8 +15,8 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewOperationLabel_numOperation}"/>
-                    <h:outputText value="#{operationController.selected.numOperation}" title="#{bundle.ViewOperationTitle_numOperation}"/>
+                    <h:outputText class="hidden" value="#{bundle.ViewOperationLabel_numOperation}"/>
+                    <h:outputText class="hidden" value="#{operationController.selected.numOperation}" title="#{bundle.ViewOperationTitle_numOperation}"/>
                     <h:outputText value="#{bundle.ViewOperationLabel_dateOperation}"/>
                     <h:outputText value="#{operationController.selected.dateOperation}" title="#{bundle.ViewOperationTitle_dateOperation}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />

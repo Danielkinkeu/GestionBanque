@@ -15,8 +15,8 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewBanquierLabel_idBanquier}"/>
-                    <h:outputText value="#{banquierController.selected.idBanquier}" title="#{bundle.ViewBanquierTitle_idBanquier}"/>
+                    <h:outputText class="hidden" value="#{bundle.ViewBanquierLabel_idBanquier}"/>
+                    <h:outputText class="hidden" value="#{banquierController.selected.idBanquier}" title="#{bundle.ViewBanquierTitle_idBanquier}"/>
                     <h:outputText value="#{bundle.ViewBanquierLabel_nom}"/>
                     <h:outputText value="#{banquierController.selected.nom}" title="#{bundle.ViewBanquierTitle_nom}"/>
                     <h:outputText value="#{bundle.ViewBanquierLabel_prenom}"/>

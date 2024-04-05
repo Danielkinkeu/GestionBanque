@@ -13,30 +13,44 @@
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            <h:form>
+            <h:form class="space-y-4 font-[sans-serif] max-w-md mx-auto">
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditClientLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{clientController.selected.id}" title="#{bundle.EditClientTitle_id}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.EditClientLabel_nom}" for="nom" />
-                    <h:inputText id="nom" value="#{clientController.selected.nom}" title="#{bundle.EditClientTitle_nom}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_nom}"/>
-                    <h:outputLabel value="#{bundle.EditClientLabel_prenom}" for="prenom" />
-                    <h:inputText id="prenom" value="#{clientController.selected.prenom}" title="#{bundle.EditClientTitle_prenom}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_prenom}"/>
-                    <h:outputLabel value="#{bundle.EditClientLabel_adresse}" for="adresse" />
-                    <h:inputText id="adresse" value="#{clientController.selected.adresse}" title="#{bundle.EditClientTitle_adresse}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_adresse}"/>
-                    <h:outputLabel value="#{bundle.EditClientLabel_telephone}" for="telephone" />
-                    <h:inputText id="telephone" value="#{clientController.selected.telephone}" title="#{bundle.EditClientTitle_telephone}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_telephone}"/>
-                    <h:outputLabel value="#{bundle.EditClientLabel_email}" for="email" />
-                    <h:inputText id="email" value="#{clientController.selected.email}" title="#{bundle.EditClientTitle_email}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_email}"/>
+                    <h:outputLabel class="hidden" value="#{bundle.EditClientLabel_id}" for="id" />
+                    <h:inputText class="hidden" id="id" value="#{clientController.selected.id}" title="#{bundle.EditClientTitle_id}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_id}"/>
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.EditClientLabel_nom}" for="nom" />
+                    <h:inputText class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="nom" value="#{clientController.selected.nom}" title="#{bundle.EditClientTitle_nom}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_nom}"/>
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.EditClientLabel_prenom}" for="prenom" />
+                    <h:inputText class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="prenom" value="#{clientController.selected.prenom}" title="#{bundle.EditClientTitle_prenom}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_prenom}"/>
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.EditClientLabel_adresse}" for="adresse" />
+                    <h:inputText class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="adresse" value="#{clientController.selected.adresse}" title="#{bundle.EditClientTitle_adresse}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_adresse}"/>
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.EditClientLabel_telephone}" for="telephone" />
+                    <h:inputText class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="telephone" value="#{clientController.selected.telephone}" title="#{bundle.EditClientTitle_telephone}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_telephone}"/>
+                    <h:outputLabel class="text-[13px]  text-black absolute px-2  font-semibold" value="#{bundle.EditClientLabel_email}" for="email" />
+                    <h:inputText class="px-4 py-3 bg-gray-100 w-full text-sm outline-none border-b-2 border-transparent focus:border-blue-500 rounded" id="email" value="#{clientController.selected.email}" title="#{bundle.EditClientTitle_email}" required="true" requiredMessage="#{bundle.EditClientRequiredMessage_email}"/>
                 </h:panelGrid>
-                <h:commandLink action="#{clientController.update}" value="#{bundle.EditClientSaveLink}"/>
                 <br />
                 <br />
-                <h:link outcome="View" value="#{bundle.EditClientViewLink}"/>
-                <br />
-                <h:commandLink action="#{clientController.prepareList}" value="#{bundle.EditClientShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.EditClientIndexLink}" />
+                <div class="font-[sans-serif] w-max mx-auto bg-gray-200 border divide-x divide-white flex rounded overflow-hidden">
+                    <button type="button"
+                            class="px-4 py-2.5 flex items-center text-[#333] text-sm font-semibold outline-none hover:bg-gray-300 transition-all">
+                        <svg  width="18px" fill="currentColor" class="mr-2" viewBox="0 0 24 24">
+                            <path d="M8.087 2a.989.989 0 0 0-.583.13l-7 4a1 1 0 0 0 0 1.737l7 4c.766.438 1.682-.256 1.467-1.111l-.316-1.27A.39.39 128.005 0 1 9.034 9H15.5c2.51 0 4.5 1.991 4.5 4.5S18.01 18 15.5 18H8a2 2 0 0 0 0 4h7.5c4.67 0 8.5-3.83 8.5-8.5S20.17 5 15.5 5H9.032a.39.39 52.01 0 1-.38-.485l.32-1.275A1.003 1.003 0 0 0 8.086 2z" data-original="#000000" paint-order="fill markers stroke" />
+                        </svg>
+                        <h:link outcome="/index" value="#{bundle.EditClientIndexLink}"/>
+
+                    </button>
+                    <button type="button"
+                            class="px-4 py-2.5 flex items-center text-[#333] text-sm font-semibold outline-none hover:bg-gray-400 transition-all">
+                        <svg  width="16px" fill="#fff" class="mr-2 inline" viewBox="0 0 24 24">
+                            <path
+                                d="M12 16a.749.749 0 0 1-.542-.232l-5.25-5.5A.75.75 0 0 1 6.75 9H9.5V3.25c0-.689.561-1.25 1.25-1.25h2.5c.689 0 1.25.561 1.25 1.25V9h2.75a.75.75 0 0 1 .542 1.268l-5.25 5.5A.749.749 0 0 1 12 16zm10.25 6H1.75C.785 22 0 21.215 0 20.25v-.5C0 18.785.785 18 1.75 18h20.5c.965 0 1.75.785 1.75 1.75v.5c0 .965-.785 1.75-1.75 1.75z"
+                                data-original="#000000" />
+                        </svg>
+                        <h:commandLink action="#{clientController.update}" value="#{bundle.EditClientSaveLink}"/>
+                    </button>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

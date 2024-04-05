@@ -10,73 +10,130 @@
             <h:outputText value="#{bundle.ListCompteTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
+            <h:form class="overflow-x-auto">
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListCompteEmpty}" rendered="#{compteController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{compteController.items.rowCount > 0}">
-                    <h:outputText value="#{compteController.pagination.pageFirstItem + 1}..#{compteController.pagination.pageLastItem + 1}/#{compteController.pagination.itemsCount}"/>&nbsp;
+                    <!--<h:outputText value="#{compteController.pagination.pageFirstItem + 1}..#{compteController.pagination.pageLastItem + 1}/#{compteController.pagination.itemsCount}"/>&nbsp;-->
                     <h:commandLink action="#{compteController.previous}" value="#{bundle.Previous} #{compteController.pagination.pageSize}" rendered="#{compteController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{compteController.next}" value="#{bundle.Next} #{compteController.pagination.pageSize}" rendered="#{compteController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{compteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:dataTable class="min-w-full bg-white font-[sans-serif]" value="#{compteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCompteTitle_numCompte}"/>
+                                <h:outputText class="px-4 py-3 text-left text-sm font-semibold text-black" value="#{bundle.ListCompteTitle_numCompte}"/>
                             </f:facet>
-                            <h:outputText value="#{item.numCompte}"/>
+                            <h:commandLink action="#{compteController.prepareView}" >
+                                <h:outputText class="px-4 py-4 text-sm " value="#{item.numCompte}"/>
+                            </h:commandLink>
+
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCompteTitle_solde}"/>
+                                <h:outputText class="px-4 py-3 text-left text-sm font-semibold text-black" value="#{bundle.ListCompteTitle_solde}"/>
                             </f:facet>
-                            <h:outputText value="#{item.solde}"/>
+                            <h:commandLink action="#{compteController.prepareView}" >
+                                <h:outputText class="px-4 py-4 text-sm " value="#{item.solde}"/>
+                            </h:commandLink>
+
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCompteTitle_dateOuverture}"/>
+                                <h:outputText class="px-4 py-3 text-left text-sm font-semibold text-black" value="#{bundle.ListCompteTitle_dateOuverture}"/>
                             </f:facet>
-                            <h:outputText value="#{item.dateOuverture}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
+                            <h:commandLink action="#{compteController.prepareView}" >
+                                <h:outputText class="px-4 py-4 text-sm " value="#{item.dateOuverture}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </h:commandLink>
+
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCompteTitle_dateFermeture}"/>
+                                <h:outputText class="px-4 py-3 text-left text-sm font-semibold text-black" value="#{bundle.ListCompteTitle_dateFermeture}"/>
                             </f:facet>
-                            <h:outputText value="#{item.dateFermeture}">
-                                <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:outputText>
+                            <h:commandLink action="#{compteController.prepareView}" >
+                                <h:outputText class="px-4 py-4 text-sm " value="#{item.dateFermeture}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </h:commandLink>
+
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCompteTitle_typeCompte}"/>
+                                <h:outputText class="px-4 py-3 text-left text-sm font-semibold text-black" value="#{bundle.ListCompteTitle_typeCompte}"/>
                             </f:facet>
-                            <h:outputText value="#{item.typeCompte}"/>
+                            <h:commandLink action="#{compteController.prepareView}" >
+                                <h:outputText class="px-4 py-4 text-sm " value="#{item.typeCompte}"/>
+                            </h:commandLink>
+
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCompteTitle_idClient}"/>
+                                <h:outputText class="px-4 py-3 text-left text-sm font-semibold text-black" value="#{bundle.ListCompteTitle_idClient}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idClient}"/>
+                            <h:commandLink action="#{compteController.prepareView}" >
+                                <h:outputText class="px-4 py-4 text-sm " value="#{item.idClient}"/>
+                            </h:commandLink>
+
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{compteController.prepareView}" value="#{bundle.ListCompteViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{compteController.prepareEdit}" value="#{bundle.ListCompteEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{compteController.destroy}" value="#{bundle.ListCompteDestroyLink}"/>
+
+
+
+                            <button class="mr-4" title="Edit">
+                                <h:commandLink action="#{compteController.prepareEdit}" >
+                                    <svg class="w-5 fill-blue-500 hover:fill-blue-700"
+                                         viewBox="0 0 348.882 348.882"> 
+                                        <path
+                                            d="m333.988 11.758-.42-.383A43.363 43.363 0 0 0 304.258 0a43.579 43.579 0 0 0-32.104 14.153L116.803 184.231a14.993 14.993 0 0 0-3.154 5.37l-18.267 54.762c-2.112 6.331-1.052 13.333 2.835 18.729 3.918 5.438 10.23 8.685 16.886 8.685h.001c2.879 0 5.693-.592 8.362-1.76l52.89-23.138a14.985 14.985 0 0 0 5.063-3.626L336.771 73.176c16.166-17.697 14.919-45.247-2.783-61.418zM130.381 234.247l10.719-32.134.904-.99 20.316 18.556-.904.99-31.035 13.578zm184.24-181.304L182.553 197.53l-20.316-18.556L294.305 34.386c2.583-2.828 6.118-4.386 9.954-4.386 3.365 0 6.588 1.252 9.082 3.53l.419.383c5.484 5.009 5.87 13.546.861 19.03z"
+                                            data-original="#000000" />
+                                        <path
+                                            d="M303.85 138.388c-8.284 0-15 6.716-15 15v127.347c0 21.034-17.113 38.147-38.147 38.147H68.904c-21.035 0-38.147-17.113-38.147-38.147V100.413c0-21.034 17.113-38.147 38.147-38.147h131.587c8.284 0 15-6.716 15-15s-6.716-15-15-15H68.904C31.327 32.266.757 62.837.757 100.413v180.321c0 37.576 30.571 68.147 68.147 68.147h181.798c37.576 0 68.147-30.571 68.147-68.147V153.388c.001-8.284-6.715-15-14.999-15z"
+                                            data-original="#000000" />
+                                    </svg>
+                                </h:commandLink>
+                                Edit
+                            </button>
+                            <button class="mr-4" title="Delete">
+                                <h:commandLink action="#{compteController.destroy}" >
+                                    <svg  class="w-5 fill-red-500 hover:fill-red-700" viewBox="0 0 24 24">
+                                        <path
+                                            d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z"
+                                            data-original="#000000" />
+                                        <path d="M11 17v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Zm4 0v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Z"
+                                              data-original="#000000" />
+                                    </svg>
+                                </h:commandLink>
+                                Delete
+                            </button>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{compteController.prepareCreate}" value="#{bundle.ListCompteCreateLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListCompteIndexLink}"/>
+                <div class="font-[sans-serif] w-max mx-auto bg-gray-200 border divide-x divide-white flex rounded overflow-hidden">
+                    <button type="button"
+                            class="px-4 py-2.5 flex items-center text-[#333] text-sm font-semibold outline-none hover:bg-gray-300 transition-all">
+                        <svg  width="18px" fill="currentColor" class="mr-2" viewBox="0 0 24 24">
+                            <path d="M8.087 2a.989.989 0 0 0-.583.13l-7 4a1 1 0 0 0 0 1.737l7 4c.766.438 1.682-.256 1.467-1.111l-.316-1.27A.39.39 128.005 0 1 9.034 9H15.5c2.51 0 4.5 1.991 4.5 4.5S18.01 18 15.5 18H8a2 2 0 0 0 0 4h7.5c4.67 0 8.5-3.83 8.5-8.5S20.17 5 15.5 5H9.032a.39.39 52.01 0 1-.38-.485l.32-1.275A1.003 1.003 0 0 0 8.086 2z" data-original="#000000" paint-order="fill markers stroke" />
+                        </svg>
+                        <h:link outcome="/index" value="#{bundle.ListCompteIndexLink}"/>
+
+                    </button>
+                    <button type="button"
+                            class="px-4 py-2.5 flex items-center text-[#333] text-sm font-semibold outline-none hover:bg-gray-300 transition-all">
+                        <svg  width="18px" fill="currentColor" class="mr-2" viewBox="0 0 6.35 6.35">
+                            <path fill-rule="evenodd" d="M3.181.264A2.92 2.92 0 0 0 .264 3.18a2.922 2.922 0 0 0 2.917 2.917A2.92 2.92 0 0 0 6.096 3.18 2.919 2.919 0 0 0 3.18.264zm0 .53A2.38 2.38 0 0 1 5.566 3.18 2.382 2.382 0 0 1 3.18 5.566 2.384 2.384 0 0 1 .794 3.179 2.383 2.383 0 0 1 3.181.794zm-.004 1.057a.265.265 0 0 0-.263.27v.794h-.793a.265.265 0 0 0-.028 0 .266.266 0 0 0 .028.53h.793v.794a.265.265 0 0 0 .531 0v-.793h.794a.265.265 0 0 0 0-.531h-.794v-.794a.265.265 0 0 0-.268-.27z" data-original="#000000" paint-order="stroke fill markers" />
+                        </svg>
+                        <h:commandLink action="#{compteController.prepareCreate}" value="#{bundle.ListCompteCreateLink}"/>
+                    </button>
+                </div>
             </h:form>
         </ui:define>
     </ui:composition>

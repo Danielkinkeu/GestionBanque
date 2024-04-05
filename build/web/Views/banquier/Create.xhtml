@@ -15,8 +15,8 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateBanquierLabel_idBanquier}" for="idBanquier" />
-                    <h:inputText id="idBanquier" value="#{banquierController.selected.idBanquier}" title="#{bundle.CreateBanquierTitle_idBanquier}" required="true" requiredMessage="#{bundle.CreateBanquierRequiredMessage_idBanquier}"/>
+                    <h:outputLabel class="hidden" value="#{bundle.CreateBanquierLabel_idBanquier}" for="idBanquier" />
+                    <h:inputText class="hidden" id="idBanquier" value="#{banquierController.selected.idBanquier}" title="#{bundle.CreateBanquierTitle_idBanquier}" required="false" requiredMessage="#{bundle.CreateBanquierRequiredMessage_idBanquier}"/>
                     <h:outputLabel value="#{bundle.CreateBanquierLabel_nom}" for="nom" />
                     <h:inputText id="nom" value="#{banquierController.selected.nom}" title="#{bundle.CreateBanquierTitle_nom}" required="true" requiredMessage="#{bundle.CreateBanquierRequiredMessage_nom}"/>
                     <h:outputLabel value="#{bundle.CreateBanquierLabel_prenom}" for="prenom" />

@@ -191,6 +191,10 @@ public class ClientController implements Serializable {
     public Client getClient(java.lang.Integer id) {
         return ejbFacade.find(id);
     }
+    
+    public SelectItem[] getCompteOfClien(){
+        return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+    }
 
     @FacesConverter(forClass = Client.class)
     public static class ClientControllerConverter implements Converter {

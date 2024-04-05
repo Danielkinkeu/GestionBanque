@@ -15,8 +15,8 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewCompteLabel_numCompte}"/>
-                    <h:outputText value="#{compteController.selected.numCompte}" title="#{bundle.ViewCompteTitle_numCompte}"/>
+                    <h:outputText class="hidden" value="#{bundle.ViewCompteLabel_numCompte}"/>
+                    <h:outputText class="hidden" value="#{compteController.selected.numCompte}" title="#{bundle.ViewCompteTitle_numCompte}"/>
                     <h:outputText value="#{bundle.ViewCompteLabel_solde}"/>
                     <h:outputText value="#{compteController.selected.solde}" title="#{bundle.ViewCompteTitle_solde}"/>
                     <h:outputText value="#{bundle.ViewCompteLabel_dateOuverture}"/>
